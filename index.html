@@ -1,10 +1,10 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中風復健懶人包｜572 筆免費文章、影片與復健資源｜吱吱復健</title>
-<meta name="description" content="吱吱復健整理 572 筆免費中風復健內容，包括部落格文章、YouTube 示範影片與 Facebook 貼文。依手部功能、肌肉張力、走路、認知、生活自理等問題快速篩選。">
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中風復健攻略｜572 筆免費文章、影片與復健資源｜吱吱復健</title>
+<meta name="description" content="中風復健攻略收錄楊昀霖職能治療師撰寫與製作的 572 筆免費內容，包括部落格文章、YouTube 影片與 Facebook 衛教貼文，依目前遇到的問題快速篩選。">
 <link rel="canonical" href="https://reliveot.github.io/stroke-rehab-guide/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="中風復健懶人包｜572 筆免費中風復健資源">
+<meta property="og:title" content="中風復健攻略｜572 筆免費中風復健資源">
 <meta property="og:description" content="互動式篩選主要問題與具體困難，快速找到相關文章、復健示範影片與 Facebook 貼文。">
 <meta property="og:url" content="https://reliveot.github.io/stroke-rehab-guide/">
 <meta name="twitter:card" content="summary">
@@ -15,7 +15,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-5X3QBD10BP');
 function trackGuide(eventName,params){
-  if(typeof gtag==='function')gtag('event',eventName,Object.assign({guide_name:'中風復健懶人包'},params||{}));
+  if(typeof gtag==='function')gtag('event',eventName,Object.assign({guide_name:'中風復健攻略'},params||{}));
 }
 </script><style>
 :root{
@@ -339,7 +339,7 @@ footer{display:flex;flex-direction:column;gap:5px}
 
 .empty strong{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:10px}
 .empty p{margin:0;line-height:1.7}
-</style></head><body><main class="wrap"><header class="hero"><div class="brand-line"><span class="brand-mark">吱吱復健</span><span class="credential">楊昀霖｜職能治療師</span></div><div class="eyebrow">STROKE REHABILITATION · 中風生活復健</div><h1><span class="hero-key">中風復健懶人包</span><span class="hero-rest">把中風復健，練回真正的生活裡</span></h1><p>從患側手、肌肉張力、站立走路、認知功能到生活自理，依目前遇到的問題，找到實用的部落格文章、YouTube 動作示範與 Facebook 貼文。</p><div class="stats"><span>📚 138 篇部落格文章</span><span>🎬 190 支免費 YouTube 影片</span><span>💬 244 篇 Facebook 貼文</span><span class="total-stat">共 572 筆免費復健內容</span></div></header>
+</style></head><body><main class="wrap"><header class="hero"><div class="brand-line"><span class="brand-mark">吱吱復健</span><span class="credential">楊昀霖｜職能治療師</span></div><div class="eyebrow">STROKE REHABILITATION · 中風生活復健</div><h1><span class="hero-key">中風復健攻略</span><span class="hero-rest">從目前遇到的問題，找到相關的復健資訊</span></h1><p>這裡收錄我這幾年撰寫的部落格文章、Facebook 衛教貼文，以及拍攝的 YouTube 影片。<br>現在把這些內容整理在一起，讓你能依照目前遇到的問題篩選，少花一點時間翻找，快一點找到相關資訊。</p><div class="stats"><span>📚 138 篇部落格文章</span><span>🎬 190 支免費 YouTube 影片</span><span>💬 244 篇 Facebook 貼文</span><span class="total-stat">共 572 筆免費復健內容</span></div></header>
 <section class="panel"><label class="sectiontitle" for="search">搜尋文章、影片或 Facebook 貼文</label><input class="search" id="search" placeholder="例如：手指張不開、肩膀痛、洗澡、失語、走路不穩…" autocomplete="off"><div class="hint">可以直接輸入問題；搜尋會套用目前選擇的問題、具體困難與來源。按「清除篩選」可查看全部。</div></section>
 <section class="panel"><div class="panelhead"><h2 class="sectiontitle">① 選擇目前遇到的問題</h2><button class="smallbtn" id="reset">清除篩選</button></div><div class="grid" id="cats"></div><div id="issuebox" class="hidden"><hr style="border:0;border-top:1px solid var(--line);margin:24px 0 18px"><h2 class="sectiontitle">② 再選更具體的困難 <span class="hint">（也可以查看這個主題的全部內容）</span></h2><div class="pillrow" id="issues"></div></div></section>
 <section class="panel"><div class="toolbar"><div><h2 class="sectiontitle" style="margin-bottom:0">找到的內容 <span id="count" class="hint" aria-live="polite"></span></h2><div class="hint" id="trail">所有內容</div></div><label class="hint">排序 <select id="sort" style="padding:7px;border:1px solid var(--line);border-radius:8px"><option value="relevance">相關程度優先</option><option value="new">發布時間（新→舊）</option><option value="az">標題排序</option></select></label></div><div class="type-tabs" role="group" aria-label="切換內容類型"><button id="typeAll" class="type-tab active" type="button">全部</button><button id="typeArticle" class="type-tab" type="button">閱讀文章</button><button id="typeVideo" class="type-tab" type="button">觀看影片</button><button id="typeFacebook" class="type-tab" type="button">Facebook 貼文</button></div><div class="results" id="results"></div><div style="text-align:center;margin-top:16px"><button id="more" class="smallbtn hidden">顯示更多內容</button></div></section>
@@ -371,7 +371,7 @@ footer{display:flex;flex-direction:column;gap:5px}
  </div>
  <p class="resources-note">需要個別詢問或預約指導，請使用上方的 LINE 官方帳號；LINE 交流社群為團體討論空間，兩者用途不同。</p>
 </section>
-<footer><strong>吱吱復健｜中風復健懶人包</strong><span>楊昀霖 職能治療師</span><p class="footer-disclaimer">本網頁內容由 AI 輔助彙整與分類，僅供復健資訊查詢與學習參考，無法取代專業人員的個別評估與建議。若發現分類不符、連結異常或內容有疑義，歡迎透過 <a href="https://lin.ee/4HnOdD4" target="_blank" rel="noopener noreferrer">LINE 聯繫反映</a>，協助我們持續修正。</p></footer></main><script id="guide-inflate">
+<footer><strong>吱吱復健｜中風復健攻略</strong><span>楊昀霖 職能治療師</span><p class="footer-disclaimer">本導覽使用 AI 協助資料整理與分類，內容僅供復健資訊查詢與學習參考，無法取代專業人員的個別評估與建議。若發現分類不符、連結異常或內容有疑義，歡迎透過 <a href="https://lin.ee/4HnOdD4" target="_blank" rel="noopener noreferrer">LINE 聯繫反映</a>，協助我們持續修正。</p></footer></main><script id="guide-inflate">
 /*
 (The MIT License)
 
