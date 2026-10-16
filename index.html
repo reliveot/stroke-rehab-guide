@@ -463,9 +463,29 @@ document.addEventListener('click',function(e){
  if(card)area='search_result';
  else if(a.closest('.course-preview,.course-stage,.course-series,.member-area,.course-list'))area='member_course';
  else if(/line|諮詢|聯繫|私訊|詢問|付費|免費/i.test(label))area='consultation';
+ // GA4 導流分類依網頁角色區分，保留既有事件及參數供歷史比較。
+ // 不以目標網站的網域推斷分組，避免 FB 粉專與免費貼文混淆。
+ let resourceGroup='other';
+ if(card)resourceGroup='free_content';
+ else if(a.closest('#paidCourseVideos'))resourceGroup='member_video';
+ else if(a.closest('#memberVideos .free-preview-feature'))resourceGroup='member_preview';
+ else if(a.closest('#hand-tools .tool-links'))resourceGroup=/shopee\./i.test(href)?'shopee_shop':'tool_demo';
+ else if(a.closest('#contact'))resourceGroup='line_contact';
+ else if(a.closest('#resources')){
+   if(/facebook\.com\/relive\.OT/i.test(href))resourceGroup='facebook_page';
+   else if(/facebook\.com\/groups\/stroke\.rehab/i.test(href))resourceGroup='facebook_group';
+   else if(/relive\.tw/i.test(href))resourceGroup='blog_home';
+   else if(/youtube\.com/i.test(href))resourceGroup='youtube_channel';
+   else if(/line\.me/i.test(href))resourceGroup='line_community';
+   else if(/books\.com\.tw/i.test(href))resourceGroup='book_link';
+   else resourceGroup='other_related_resource';
+ }
+ else if(a.closest('footer'))resourceGroup='line_feedback';
+ else if(kind==='line')resourceGroup='line_contact';
  trackGuide('resource_click',{
    link_category:kind,link_label:label,link_url:href,
-   link_area:area,selected_category:category||'',selected_issue:issue||'',
+   link_area:area,resource_group:resourceGroup,
+   selected_category:category||'',selected_issue:issue||'',
    content_filter:type,search_active:Boolean(query)
  });
 },true);
@@ -570,6 +590,20 @@ SOURCE_TABS.forEach(([id,val,label])=>{$(id).textContent=`${label} · ${counts[v
 $('search').addEventListener('input',e=>{query=e.target.value.trim();limit=18;render()});$('reset').onclick=()=>{category='';issue='';query='';type='all';limit=18;$('search').value='';render()};$('more').onclick=()=>{limit+=18;render()};$('sort').onchange=render;
 $('search').addEventListener('change',()=>{if(query)trackGuide('search_submit',{search_term:query.slice(0,100)});});
 SOURCE_TABS.forEach(([id,val])=>$(id).onclick=()=>selectSource(val));
+
+// 追蹤會員影片明細首次或再次展開；收起時不送出事件。
+// 使用原生 details 的 toggle 狀態，滑鼠、鍵盤及觸控操作皆適用。
+const memberDetails=document.querySelector('#memberVideos details.member-details');
+if(memberDetails){
+ memberDetails.addEventListener('toggle',()=>{
+  if(!memberDetails.open)return;
+  trackGuide('member_details_open',{
+   resource_group:'member_video',
+   link_area:'member_course',
+   link_label:'查看會員影片詳細內容'
+  });
+ });
+}
 
 // 會員影片按實際觀看順序顯示
 const paidContainer=$('paidCourseVideos');
